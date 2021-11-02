@@ -1,0 +1,36 @@
+body {
+  font-size: 20px;
+}
+
+.head {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  height: 60px;
+  line-height: 60px;
+}
+
+.head-logo {
+  display: inline-block;
+  background-color: #458FF6;
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  color: #fff;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.text-logo {
+  display: inline-block;
+}
+
+.head-navigation {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+.head-navigation>li {
+  text-align: center;
+  list-style: none;
+}
