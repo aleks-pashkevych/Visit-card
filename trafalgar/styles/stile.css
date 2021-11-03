@@ -1,5 +1,11 @@
+@import url(normalize.css);
+
 body {
   font-size: 20px;
+}
+
+.wrapper {
+  overflow: hidden;
 }
 
 .head {
