@@ -10,6 +10,7 @@ body {
   padding-right: 4%;
   overflow: hidden;
   font-family: "Mulish";
+  background-color: #E5E5E5;
 }
 
 .head {
@@ -99,4 +100,36 @@ li.active {
   font-weight: bold;
   line-height: 56px;
   margin-left: 24%;
+}
+
+/* ! Our services */
+
+.services-head {
+  font-weight: bold;
+  font-size: 36px;
+  text-align: center;
+  line-height: 56px;
+  color: #000;
+}
+
+.service-text {
+  text-align: center;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 30px;
+  color: #7D7987;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.service-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.service-card {
+  width: 30%;
+  height: 354px;
 }
