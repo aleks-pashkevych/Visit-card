@@ -23,6 +23,7 @@ body {
   position: sticky;
   top: 26px;
   margin-bottom: 60px;
+  z-index: 10;
 }
 
 .head-logo {
@@ -159,4 +160,62 @@ li.active {
   border-radius: 55px;
   border-color: #458FF6;
   border-width: 1.4px;
+}
+
+/* ! Leading healthcare providers */
+.healthcare {
+  padding-top: 70px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.leading-img {
+  width: 45%;
+  height: 350px;
+  background-image: url("../images/leading-providers.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.leading-text {
+  width: 45%;
+}
+
+.leading-text-head {
+  font-weight: bold;
+  color: #000;
+  font-size: 36px;
+  line-height: 56px;
+}
+
+.leading-text-p {
+  padding-bottom: 37px;
+  color: #7D7987;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.info-hr {
+  width: 15%;
+  border-radius: 2px;
+  height: 2px;
+  background-color: #000;
+  position: relative;
+  left: -42%;
+
+}
+
+.providers-apps-btn {
+  color: #458FF6;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 58px;
+  border-radius: 55px;
+  border-width: 1.4px;
+  width: 200px;
+  border-color: #458FF6;
+  margin-left: 20%;
 }
