@@ -204,7 +204,7 @@ li.active {
 }
 
 .leading-text {
-  width: 45%;
+  width: 50%;
 }
 
 .leading-text-head {
@@ -273,7 +273,7 @@ li.active {
 
 .slider .slick-arrow {
   position: absolute;
-  top: 3400px;
+  top: 3300px;
   font-size: 0;
   width: 40px;
   height: 30px;
@@ -292,7 +292,7 @@ li.active {
 
 .slider .slick-dots {
   position: absolute;
-  top: 3380px;
+  top: 3280px;
   left: 50%;
   display: flex;
   justify-content: center;
