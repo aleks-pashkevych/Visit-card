@@ -48,27 +48,14 @@ for (let i = 0; i < listArr.length; i++) {
    text.innerText = txt;
 }
 
-const colourArr = ["red", "orange", "yellow", "green", "blue", "purple", "pink", "rgb(36,146,82)"];
 const lists = document.querySelectorAll("li");
 for (let i = 0; i < lists.length; i++) {
-   console.log("Colour = " + setColour());
-   // lists[i].style.backgroundColor = "rgb(36,146,82)";
-   //lists[i].style.backgroundColor = setColour();
-   lists[i].style.backgroundColor = setRamColour();
-
-}
-for (let i = 0; i < 20; i++) {
-   colourArr.push(setColour());
-}
-console.log(colourArr);
-
-function setRamColour() {
-   return colourArr[Math.floor(Math.random() * 8)];
+   lists[i].style.backgroundColor = setColour();
 }
 
 function setColour() {
    let outValue = "rgb(" + Math.floor(Math.random() * 255) + "," +
       Math.floor(Math.random() * 255) + "," +
-      Math.floor(Math.random() * 255) + ");";
+      Math.floor(Math.random() * 255) + ")";
    return outValue;
 }
