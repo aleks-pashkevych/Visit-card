@@ -4,7 +4,6 @@
 
 let stringLength = Math.floor(Math.random() * 6);
 let generatedString = getRandomString(stringLength);
-console.log("Number: " + stringLength);
 const obj = generateObject(generatedString);
 console.log(obj);
 let resultString = getStringFromObject(obj);
@@ -12,28 +11,44 @@ console.log("Output String:" + resultString);
 
 function generateObject(str) {
   let strLength = str.length;
-  let initialString = "laptop";
+  let initialString = getInitialString();
   let outputString = "";
-  if (strLength >= initialString.length) {
+  if (strLength >= initialString.length || strLength == 0) {
     strLength = 3;
   }
-  str = new Object;
-
+  str = new Object();
+  let key = "";
+  let value = "";
   for (let i = 0; i < strLength; i++) {
-    outputString = outputString + initialString[i];    
+    outputString = outputString + initialString[i];
+    value = outputString;
+    key = getRandomString(strLength);
+    str[key] = value;
   }
-  let key = "value",
-  value = outputString;
-  str[key] = value;
   return str;
 }
 
 function getStringFromObject(obj) {
   let value = "";
   for (let key in obj) {
-value = obj[key];
+    value = value + obj[key] + ", ";
   }
   return value;
+}
+
+function getInitialString() {
+  let initString = prompt("Enter at at least 6 characters: ");
+  let strLength = Math.floor(Math.random() * 10 + 5);
+  console.log("initString: " + initString);
+  if (initString === null) {
+    initString = getRandomString(strLength);
+  } else if (initString.length > 5) {
+    return initString;
+  } else {
+    initString = getRandomString(strLength);
+  }
+  console.log("Result string: " + initString);
+  return initString;
 }
 
 function getRandomString(length) {
