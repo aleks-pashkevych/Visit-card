@@ -46,6 +46,12 @@ gulp.task("build-js", () => {
                 .pipe(browsersync.stream());
 });
 
+gulp.task("build-js", () => {
+  return gulp.src("./src/js/myscript.js")              
+              .pipe(gulp.dest(dist + '/js'))
+              .pipe(browsersync.stream());
+});
+
 gulp.task("build-sass", () => {
     return gulp.src("./src/scss/**/*.scss")
                 .pipe(sass().on('error', sass.logError))
