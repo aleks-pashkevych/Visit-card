@@ -2,20 +2,20 @@
 /* jslint node: true */
 'use strict';
 
-   document.addEventListener('DOMContentLoaded', () => {
-      console.log("web page started");
-   
+document.addEventListener('DOMContentLoaded', () => {
+   console.log("web page started");
 
-      //!             ---== Tabs ==---
-      const tabs = document.querySelectorAll('.tabheader__item');
-      const tabContent = document.querySelectorAll('.tabcontent');
-      const tabParent = document.querySelector('.tabcontainer');
+
+   //!             ---== Tabs ==---
+   const tabs = document.querySelectorAll('.tabheader__item');
+   const tabContent = document.querySelectorAll('.tabcontent');
+   const tabParent = document.querySelector('.tabcontainer');
 
 
    function hideTabContent() {
       tabContent.forEach(item => {
          item.classList.add("hide");
-         item.classList.remove("show","fade");
+         item.classList.remove("show", "fade");
       });
 
       tabs.forEach(item => {
@@ -32,22 +32,81 @@
    hideTabContent();
    showTabContent();
 
-   tabParent.addEventListener('click', (event) =>{
+   tabParent.addEventListener('click', (event) => {
       event.preventDefault();
 
       const target = event.target;
       if (target && target.classList.contains('tabheader__item')) {
          hideTabContent();
-         tabs.forEach((item,i) => {
-            if (item == target){
+         tabs.forEach((item, i) => {
+            if (item == target) {
                hideTabContent();
                showTabContent(i);
-               
+
             }
          });
       }
    });
-//!                  ---== Timer ==---
+   //!                  ---== Timer ==---
+
+   const deadLine = '2022-05-20';
+
+   function getTimeRemaining(endTime) {
+      const currentTime = new Date();
+      let timeToEnd = Date.parse(endTime)- currentTime;
+           
+      let daysLeft = addZero(Math.floor(timeToEnd/(1000*60*60*24)));
+      let hoursLeft = addZero(Math.floor((timeToEnd/(1000 *60*60))%24));
+      let minsToEnd = addZero(Math.floor((timeToEnd/(1000*60))%(60)));
+      let secondsLeft = addZero(Math.floor((timeToEnd / 1000) % 60));
+
+      function addZero(input) {
+         if (input >= 0 && input <10) {
+            return ("0" + input);
+         } else {
+            return input;
+         }
+      }
+
+      console.log(`sec: ${secondsLeft}, 
+      min ${minsToEnd},
+       hours: ${hoursLeft},
+        days: ${daysLeft} `);
+
+        return {
+           'total': timeToEnd,
+           'days': daysLeft,
+           'hours': hoursLeft,
+           'minutes': minsToEnd,
+           'seconds': secondsLeft,
+        }
+   }
+
+   function setClock(selector, endTime) {
+      const timer = document.querySelector(selector);
+      
+      const days = timer.querySelector('#days'),
+         hours = timer.querySelector('#hours'),
+         minutes = timer.querySelector('#minutes'),
+         seconds = timer.querySelector('#seconds'),
+         timeInterval = setInterval(updateClock, 1000);
+         updateClock();
+
+      function updateClock() {
+         const timeTillEnd = getTimeRemaining(endTime);
+
+         days.innerHTML = timeTillEnd.days;
+         hours.innerHTML = timeTillEnd.hours;
+         minutes.innerHTML = timeTillEnd.minutes;
+         seconds.innerHTML = timeTillEnd.seconds;
+
+         if (timeTillEnd.total <= 0) {
+            clearInterval(timeInterval);
+         }
+      }
+   }
+   setClock('.timer', deadLine);
+
 
 
 });
