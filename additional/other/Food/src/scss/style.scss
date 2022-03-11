@@ -1,4 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap&subset=cyrillic-ext');
+@font-face {
+	font-family: 'Timebomb';
+   src:url('../fonts/TickingTimebombBB.eot');
+	// src: url('fonts/TickingTimebombBB.eot');
+	src: local('☺'), url('../fonts/TickingTimebombBB.woff') format('woff'), url('../fonts/TickingTimebombBB.ttf') format('truetype'), url('fonts/TickingTimebombBB.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
 @import './variables/variables';
 @import './base.scss';
 
