@@ -3,9 +3,6 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-   console.log("web page started");
-
-
    //!             ---== Tabs ==---
    const tabs = document.querySelectorAll('.tabheader__item');
    const tabContent = document.querySelectorAll('.tabcontent');
@@ -53,44 +50,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
    function getTimeRemaining(endTime) {
       const currentTime = new Date();
-      let timeToEnd = Date.parse(endTime)- currentTime;
-           
-      let daysLeft = addZero(Math.floor(timeToEnd/(1000*60*60*24)));
-      let hoursLeft = addZero(Math.floor((timeToEnd/(1000 *60*60))%24));
-      let minsToEnd = addZero(Math.floor((timeToEnd/(1000*60))%(60)));
+      let timeToEnd = Date.parse(endTime) - currentTime;
+
+      let daysLeft = addZero(Math.floor(timeToEnd / (1000 * 60 * 60 * 24)));
+      let hoursLeft = addZero(Math.floor((timeToEnd / (1000 * 60 * 60)) % 24));
+      let minsToEnd = addZero(Math.floor((timeToEnd / (1000 * 60)) % (60)));
       let secondsLeft = addZero(Math.floor((timeToEnd / 1000) % 60));
 
       function addZero(input) {
-         if (input >= 0 && input <10) {
+         if (input >= 0 && input < 10) {
             return ("0" + input);
          } else {
             return input;
          }
       }
 
-      console.log(`sec: ${secondsLeft}, 
-      min ${minsToEnd},
-       hours: ${hoursLeft},
-        days: ${daysLeft} `);
 
-        return {
-           'total': timeToEnd,
-           'days': daysLeft,
-           'hours': hoursLeft,
-           'minutes': minsToEnd,
-           'seconds': secondsLeft,
-        }
+
+      return {
+         'total': timeToEnd,
+         'days': daysLeft,
+         'hours': hoursLeft,
+         'minutes': minsToEnd,
+         'seconds': secondsLeft,
+      }
    }
 
    function setClock(selector, endTime) {
       const timer = document.querySelector(selector);
-      
+
       const days = timer.querySelector('#days'),
          hours = timer.querySelector('#hours'),
          minutes = timer.querySelector('#minutes'),
          seconds = timer.querySelector('#seconds'),
          timeInterval = setInterval(updateClock, 1000);
-         updateClock();
+      updateClock();
 
       function updateClock() {
          const timeTillEnd = getTimeRemaining(endTime);
@@ -108,5 +102,67 @@ document.addEventListener('DOMContentLoaded', () => {
    setClock('.timer', deadLine);
 
 
+   //!                   ---== Modal ==---
+
+   const modalTrigger = document.querySelectorAll('[data-modal]');
+   const modal = document.querySelector('.modal');
+   const modalCloseBtn = document.querySelector('[data-close');
+
+   function openModal() {
+      modal.classList.add('show', 'fade');
+      modal.classList.remove('hide');
+      document.body.style.overflow = "hidden";
+      clearInterval(modalTimerId);
+   }
+
+   modalTrigger.forEach(btn => {
+      btn.addEventListener('click', openModal);
+   });
+
+   const modalTimerId = setTimeout(openModal, 30000);
+
+   let wasShowed = false;
+
+   window.addEventListener('scroll', () => {
+      if ((window.pageYOffset + document.documentElement.clientHeight >= 
+         document.documentElement.scrollHeight - 1) && !wasShowed) {
+          openModal();
+          wasShowed = true;
+          console.log("was showed: " + wasShowed);
+          
+      }
+   });
+   
+
+   modalCloseBtn.addEventListener('click', closeModalForm);
+
+   document.addEventListener('keydown', (e) => {
+      if (e.code === 'Escape' && modal.classList.contains("show")) {
+         closeModalForm();
+      }
+   });
+
+   modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+         closeModalForm();
+      }
+   });
+
+   function closeModalForm() {
+      modal.classList.add('hide');
+      modal.classList.remove('show');
+      document.body.style.overflow = "";
+   }
+
+   const callMeBtn = document.querySelector('[data-callMeModal');
+   const modalName = document.querySelector('[data-modalInputName');
+   const modalPhone = document.querySelector('[data-modalInputPhone]');
+
+   callMeBtn.addEventListener('click', () => {
+      const name = modalName.value;
+      const phone = modalPhone.value;
+      console.dir("name: " + name + ", " + "phone: " + phone);
+
+   });
 
 });
