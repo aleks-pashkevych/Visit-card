@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+:root {
+  --slider-width: 600px;
+  --slider-height: 400px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  height: 100%;
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  letter-spacing: 0.15em;
+  font-size: 22px;
+}
+
+#slider {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: var(--slider-width);
+  height: var(--slider-height);
+  box-shadow: 3px 3px 10px rgba(0,0,0,.2);
+}
+
+#wrapper-slides {
+  overflow: hidden;
+  position: relative;
+  width: var(--slider-width);
+  height: var(--slider-height);
+  z-index: 1;
+}
+
+#slides {
+  display: flex;
+  height: 100%;
+}
+
+.slide {
+  width: var(--slider-width);
+  height: var(--slider-height);
+  position: relative;
+  background-size: cover;
+}
+
+.slide-overlay {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 25px 40px;
+  background-color: rgba(0, 0, 0, 0.2);
+  font-size: 24px;
+  color: #fff;
+}
+.slide-overlay {
+   position: absolute;
+   left: 0;
+   bottom:0;
+   padding: 25px;
+}
+
+.control {
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  border-radius: 50px;
+  margin-top: -20px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+#prev,
+#next {
+  background-size: 22px;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+#prev {
+  background-image: url(https://cdn0.iconfinder.com/data/icons/navigation-set-arrows-part-one/32/ChevronLeft-512.png);
+  left: -20px;
+}
+
+#next {
+  background-image: url(https://cdn0.iconfinder.com/data/icons/navigation-set-arrows-part-one/32/ChevronRight-512.png);
+  right: -20px;
+}
+
+#prev:active,
+#next:active {
+  transform: scale(.8);
+}
+
