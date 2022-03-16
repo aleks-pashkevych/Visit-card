@@ -33,3 +33,4 @@ scene.addEventListener('mousemove', function (e) {
 ball.addEventListener("click", () => {
    ballActive = !ballActive;
 });
+

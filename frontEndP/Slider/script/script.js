@@ -63,6 +63,15 @@ this.moveToIndex = function(index) {
   this.itemsEl.addEventListener('transitionend', (e) => {
     this.itemsEl.classList.remove('transition');
   });
+
+  // ? DRAWING 
+  this.itemsEl.addEventListener('mousedown', (e) => {
+
+  });
+
+  this.itemsEl.addEventListener('mouseup', (e) =>{
+    
+  });
 }
 
 
