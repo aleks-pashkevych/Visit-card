@@ -38,15 +38,33 @@ function Slider({
     });
   };
   createSlides();
-  this.prevEl.addEventListener("click", (e) =>{
-    console.log("prev: " + e.target);
+
+this.moveToIndex = function(index) {
+  const posX = index * wrapperWidth;
+  this.itemsEl.classList.add('transition');
+  this.itemsEl.style.transform = `translate(${-posX}px, 0`;
+};
+
+  this.prevEl.addEventListener("click", (e) => {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+      this.moveToIndex(this.currentIndex);
+      
+    }
   });
 
-  this.nextEl.addEventListener("click", (e) =>{
-    console.log("next: " + e.target);
+  this.nextEl.addEventListener("click", (e) => {
+    if (this.currentIndex < slides.length - 1) {
+      this.currentIndex++;
+      this.moveToIndex(this.currentIndex);
+      
+    }
   });
-
+  this.itemsEl.addEventListener('transitionend', (e) => {
+    this.itemsEl.classList.remove('transition');
+  });
 }
+
 
 const slides = [{
     description: "Test slide 1",
