@@ -41,9 +41,7 @@ function Slider({
       if (i == 0) {
         paginationEl.classList.add('active');
       }
-
       slide.appendChild(overlay);
-
 
       this.itemsEl.appendChild(slide);
       this.paginationEl.appendChild(paginationEl);
@@ -79,12 +77,9 @@ function Slider({
   });
   this.itemsEl.addEventListener('transitionend', (e) => {
     this.itemsEl.classList.remove('transition');
-
-
-
   });
 
-  // ? DRAGING 
+  //?   DRAWING 
   let isDrawing = false;
   const leftThreshold = 100;
   const rightThreshold = -100;
@@ -93,13 +88,11 @@ function Slider({
     isDrawing = true;
     startDrawPosX = e.clientX;
   });
-
   this.itemsEl.addEventListener('mousemove', (e) => {
     if (!isDrawing) {
       return;
     }
     const diffX = startDrawPosX - e.clientX;
-
     if (diffX > leftThreshold) {
       this.moveToIndex(this.currentIndex + 1);
       isDrawing = false;
@@ -109,11 +102,9 @@ function Slider({
       isDrawing = false;
     }
   });
-
   this.itemsEl.addEventListener('mouseup', (e) => {
     isDrawing = false;
   });
-
   this.itemsEl.addEventListener('mouseleave', (e) => {
     if (!isDrawing) {
       return;
@@ -127,8 +118,8 @@ function Slider({
       isDrawing = false;
     }
   });
-  //?   PAGINATION
 
+  //?   PAGINATION
   this.paginationEl.addEventListener('click', (e) => {
     const el = e.target;
     if (e.target.classList.contains('pagination-item')) {
@@ -136,6 +127,8 @@ function Slider({
       this.moveToIndex(index);
     }
   });
+
+  //&   KEYBOARD
   document.addEventListener('keydown', (e) => {
     switch (e.code) {
       case 'ArrowRight':
