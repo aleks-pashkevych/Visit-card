@@ -5,7 +5,9 @@
   --slider-height: 400px;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   height: 100%;
@@ -23,7 +25,7 @@ body {
   transform: translate(-50%, -50%);
   width: var(--slider-width);
   height: var(--slider-height);
-  box-shadow: 3px 3px 10px rgba(0,0,0,.2);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, .2);
 }
 
 #wrapper-slides {
@@ -64,13 +66,6 @@ body {
   font-size: 24px;
   color: #fff;
 }
-/* .slide-overlay {
-   position: absolute;
-   left: 34%;
-   bottom:0;
-   padding: 25px;
-  
-} */
 
 .control {
   position: absolute;
@@ -107,3 +102,38 @@ body {
   transform: scale(.8);
 }
 
+#pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.pagination-item {
+  width: 25px;
+  height: 25px;
+  margin: 0 10px;
+  border-radius: 25%;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  cursor: pointer;
+  transition: all .3s linear;
+  line-height: 25px;
+  font-size: small;
+  padding-left: 4px;
+
+}
+
+.pagination-item:hover {
+  font-size: large;
+  font-weight: bold;
+
+  background-color: rgba(0, 0, 0, 1);
+
+}
+
+.pagination-item.active {
+  font-size: large;
+  font-weight: bold;
+  color: #fff;
+  background-color: rgba(0, 0, 0, .8);
+}

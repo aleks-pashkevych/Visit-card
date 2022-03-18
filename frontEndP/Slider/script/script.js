@@ -7,6 +7,7 @@ function Slider({
   itemsId,
   prevId,
   nextId,
+  paginationId,
   slides
 }) {
   this.wrapperEl = document.getElementById(wrapperId);
@@ -15,6 +16,7 @@ function Slider({
 
   this.prevEl = document.getElementById(prevId);
   this.nextEl = document.getElementById(nextId);
+  this.paginationEl = document.getElementById(paginationId);
   this.currentIndex = 0;
 
   const {
@@ -23,7 +25,7 @@ function Slider({
   this.itemsEl.style.width = `${this.slidesLength * wrapperWidth}px`;
 
   const createSlides = () => {
-    slides.forEach((item) => {
+    slides.forEach((item, i) => {
       const slide = document.createElement("div");
       slide.style.backgroundImage = `url(${item.src})`;
       slide.classList.add("slide");
@@ -32,48 +34,129 @@ function Slider({
       overlay.innerText = item.description;
       overlay.classList.add("slide-overlay");
 
+      const paginationEl = document.createElement("div");
+      paginationEl.classList.add("pagination-item");
+      paginationEl.innerText = i + 1;
+      paginationEl.dataset.index = i;
+      if (i == 0) {
+        paginationEl.classList.add('active');
+      }
+
       slide.appendChild(overlay);
 
+
       this.itemsEl.appendChild(slide);
+      this.paginationEl.appendChild(paginationEl);
     });
   };
   createSlides();
 
-this.moveToIndex = function(index) {
-  const posX = index * wrapperWidth;
-  this.itemsEl.classList.add('transition');
-  this.itemsEl.style.transform = `translate(${-posX}px, 0`;
-};
+  this.moveToIndex = function (index) {
+    if (index < 0) {
+      this.currentIndex = 0;
+    } else if (index > slides.length - 1) {
+      this.currentIndex = slides.length - 1;
+    } else {
+      this.currentIndex = index;
+    }
+    const posX = this.currentIndex * wrapperWidth;
+    this.itemsEl.classList.add('transition');
+    this.itemsEl.style.transform = `translate(${-posX}px, 0`;
+
+    const paginationItemsCollection = document.querySelectorAll('.pagination-item');
+    paginationItemsCollection.forEach(elem => {
+      elem.classList.remove('active');
+    });
+    paginationItemsCollection[this.currentIndex].classList.add('active');
+  };
 
   this.prevEl.addEventListener("click", (e) => {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-      this.moveToIndex(this.currentIndex);
-      
-    }
+    this.moveToIndex(this.currentIndex - 1);
   });
 
   this.nextEl.addEventListener("click", (e) => {
-    if (this.currentIndex < slides.length - 1) {
-      this.currentIndex++;
-      this.moveToIndex(this.currentIndex);
-      
-    }
+    this.moveToIndex(this.currentIndex + 1);
   });
   this.itemsEl.addEventListener('transitionend', (e) => {
     this.itemsEl.classList.remove('transition');
+
+
+
   });
 
-  // ? DRAWING 
+  // ? DRAGING 
+  let isDrawing = false;
+  const leftThreshold = 100;
+  const rightThreshold = -100;
+  let startDrawPosX = 0;
   this.itemsEl.addEventListener('mousedown', (e) => {
-
+    isDrawing = true;
+    startDrawPosX = e.clientX;
   });
 
-  this.itemsEl.addEventListener('mouseup', (e) =>{
-    
+  this.itemsEl.addEventListener('mousemove', (e) => {
+    if (!isDrawing) {
+      return;
+    }
+    const diffX = startDrawPosX - e.clientX;
+
+    if (diffX > leftThreshold) {
+      this.moveToIndex(this.currentIndex + 1);
+      isDrawing = false;
+    }
+    if (diffX < rightThreshold) {
+      this.moveToIndex(this.currentIndex - 1);
+      isDrawing = false;
+    }
   });
+
+  this.itemsEl.addEventListener('mouseup', (e) => {
+    isDrawing = false;
+  });
+
+  this.itemsEl.addEventListener('mouseleave', (e) => {
+    if (!isDrawing) {
+      return;
+    }
+    if (this.diffX > leftThreshold) {
+      this.moveToIndex(this.currentIndex + 1);
+      isDrawing = false;
+    }
+    if (this.diffX < rightThreshold) {
+      this.moveToIndex(this.currentIndex - 1);
+      isDrawing = false;
+    }
+  });
+  //?   PAGINATION
+
+  this.paginationEl.addEventListener('click', (e) => {
+    const el = e.target;
+    if (e.target.classList.contains('pagination-item')) {
+      const index = +el.dataset.index;
+      this.moveToIndex(index);
+    }
+  });
+  document.addEventListener('keydown', (e) => {
+    switch (e.code) {
+      case 'ArrowRight':
+        this.moveToIndex(this.currentIndex + 1);
+        break;
+
+      case 'ArrowLeft':
+        this.moveToIndex(this.currentIndex - 1);
+        break;
+
+      case 'ArrowDown':
+        this.moveToIndex(slides.length - 1);
+        break;
+
+      case 'ArrowUp':
+        this.moveToIndex(0);
+        break;
+    }
+  });
+
 }
-
 
 const slides = [{
     description: "Test slide 1",
@@ -102,5 +185,6 @@ const slider = new Slider({
   itemsId: "slides",
   prevId: "prev",
   nextId: "next",
+  paginationId: "pagination",
   slides,
 });
