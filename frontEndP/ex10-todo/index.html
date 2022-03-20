@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>JS: TODO APP</title>
+   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+   <link rel="stylesheet" href="stile/stile.css">
+</head>
+
+<body>
+   <div class="wrapper">
+      <table class="todo-table">
+         <thead>
+            <tr>
+               <th>Name</th>
+               <th>Owner</th>
+               <th>Status</th>
+               <th>Duration</th>
+               <th>   </th>
+            </tr>
+         </thead>
+         <tbody>
+            
+         </tbody>
+         <tfoot>
+            <tr>
+               <td colspan="2"><i><b>Completed tasks:</b></i></td>
+               
+               <td class="completed-tasks">0</td>
+            </tr>
+         </tfoot>
+      </table>
+      <form class="todo-form">
+         <div class="field-wrapper">
+            <input type="text" name="name" placeholder="Enter name" />
+         </div>
+         <div class="field-wrapper">
+            <input type="email" name="owner" placeholder="Enter email" />
+         </div>
+         <div class="field-wrapper">
+            <select name="status">
+               <option disabled selected value="select-option">--- Select option ---</option>
+               <option value="draft">Draft</option>
+               <option value="in_progress">In progress</option>
+               <option value="completed">Completed</option>
+            </select>
+         </div>
+         <div class="field-wrapper">
+            <input type="text" name="duration" placeholder="Enter duration" />
+         </div>
+         <div class="todo-form-actions">
+            <button type="reset">Clear</button>
+            <button type="submit">Add</button>
+         </div>
+
+      </form>
+   </div>
+
+
+   <script src="script/script.js"></script>
+</body>
+
+</html>
