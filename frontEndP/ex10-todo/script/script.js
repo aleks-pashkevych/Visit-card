@@ -7,9 +7,10 @@ const nameEl = document.querySelector('[name="name"]');
 const ownerEl = document.querySelector('[name="owner"]');
 const statusEl = document.querySelector('[name="status"]');
 const durationEl = document.querySelector('[name="duration"]');
-
 const tableEl = document.querySelector('.todo-table');
 const tableBodyEl = tableEl.querySelector('tbody');
+
+let completedTasks = 0;
 
 //&       FORM LISTENERS
 
@@ -19,7 +20,6 @@ formEl.addEventListener('submit', (e) => {
   const owner = ownerEl.value;
   const status = statusEl.value;
   const duration = durationEl.value;
-
   const nameFieldIsValid = isElementValid(nameEl);
   const ownerFieldIsValid = isElementValid(ownerEl);
   const durationFieldIsValid = isElementValid(durationEl);
@@ -35,18 +35,19 @@ formEl.addEventListener('submit', (e) => {
       status,
       duration,
     });
-
+  }
+  if (statusEl.value === 'completed') {
+    completedTasks = completedTasks + 1;
+    updateCompletedTd();
   }
 
 });
 formEl.addEventListener('reset', (e) => {
   e.preventDefault();
-
   nameEl.value = "";
   ownerEl.value = "";
   durationEl.value = "";
   statusEl.value = "select-option";
-
 });
 
 function isEmpty(value) {
@@ -94,8 +95,45 @@ function createTableItem(obj) {
     tdEl.innerText = value;
     trEl.appendChild(tdEl);
   });
+  const removeButton = createRemoveButton();
+  trEl.appendChild(removeButton);
   return trEl;
 }
+
 function appendToTable(obj) {
-tableBodyEl.appendChild(createTableItem(obj));
+  tableBodyEl.appendChild(createTableItem(obj));
+}
+
+function updateCompletedTd() {
+  const completedResultEl = tableEl.querySelector('td.completed-tasks');
+  completedResultEl.innerText = completedTasks;
+}
+
+function createRemoveButton() {
+  const tdEl = document.createElement('td');
+  const buttonEl = document.createElement('button');
+  buttonEl.innerText = "Remove";
+  tdEl.appendChild(buttonEl);
+
+  function handleClickRemoveButton(target) {
+    buttonEl.removeEventListener('click', handleClickRemoveButton);
+    (target).remove();
+    isTrCompleted(target);
+  }
+
+  function isTrCompleted(row) {
+    const rowEl = row.querySelectorAll('td');
+    rowEl.forEach(item => {
+      if (item.innerText === 'completed') {
+        completedTasks = completedTasks - 1;
+      }
+    });
+    updateCompletedTd();
+  }
+
+  buttonEl.addEventListener('click', (e) => {
+    const target = e.target.parentNode.parentNode;
+    handleClickRemoveButton(target);
+  });
+  return tdEl;
 }
