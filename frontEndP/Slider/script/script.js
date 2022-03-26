@@ -84,11 +84,11 @@ function Slider({
   const leftThreshold = 100;
   const rightThreshold = -100;
   let startDrawPosX = 0;
-  this.itemsEl.addEventListener('mousedown', (e) => {
+  this.itemsEl.addEventListener('pointerdown', (e) => {
     isDrawing = true;
     startDrawPosX = e.clientX;
   });
-  this.itemsEl.addEventListener('mousemove', (e) => {
+  this.itemsEl.addEventListener('pointermove', (e) => {
     if (!isDrawing) {
       return;
     }
@@ -102,10 +102,10 @@ function Slider({
       isDrawing = false;
     }
   });
-  this.itemsEl.addEventListener('mouseup', (e) => {
+  this.itemsEl.addEventListener('pointerup', (e) => {
     isDrawing = false;
   });
-  this.itemsEl.addEventListener('mouseleave', (e) => {
+  this.itemsEl.addEventListener('pointerleave', (e) => {
     if (!isDrawing) {
       return;
     }
@@ -147,8 +147,8 @@ function Slider({
         this.moveToIndex(0);
         break;
     }
-  });
 
+  });
 }
 
 const slides = [{
