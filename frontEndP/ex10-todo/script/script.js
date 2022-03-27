@@ -10,6 +10,11 @@ const durationEl = document.querySelector('[name="duration"]');
 const tableEl = document.querySelector('.todo-table');
 const tableBodyEl = tableEl.querySelector('tbody');
 
+const optionEl = document.createElement("option");
+optionEl.text = "Rejected";
+optionEl.value = "rejected";
+statusEl.appendChild(optionEl);
+
 let completedTasks = 0;
 
 //&       FORM LISTENERS
