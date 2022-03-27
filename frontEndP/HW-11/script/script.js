@@ -28,7 +28,7 @@ function contains(obj, val) {
    let result = false;
 
    for (let key in obj) {
-      if (typeof (obj[key]) === 'object' && typeof(obj[key]) != null) {
+      if (typeof (obj[key]) === 'object' && typeof (obj[key]) != null) {
          return contains(obj[key], val);
       } else if (obj[key] == val) {
          result = true;
@@ -57,11 +57,25 @@ console.log("-------------------------------------------------");
 //*    3)   function createStack
 
 function createStack() {
-   //...
-   }
-   
-   const stack = createStack();
-   // stack.add(5);
-   // stack.add("test");
-   // stack.remove();
-   // stack.get(); // [5]
+   let list = [];
+   const stack = {
+      add: function (item) {
+         list.push(item);
+      },
+      remove: function () {
+         list.pop();
+      },
+      get: function () {
+         for (let i = list.length - 1; i >= 0; i--) {
+            console.log(`item ${i+1} = ${list[i]}`);
+         }
+      },
+   };
+   return stack;
+}
+
+const stack = createStack();
+stack.add(5);
+stack.add("test");
+stack.remove();
+stack.get(); // [5]
