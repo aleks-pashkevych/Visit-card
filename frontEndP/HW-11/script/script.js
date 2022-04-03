@@ -4,19 +4,22 @@
 
 //*   1)  array sum
 
-function getSum(arr, arraySum = 0) {
-   if (arr.length === 0) {
-      return +arraySum;
+function getSum(arr) {
+   function innerSum(arr, arraySum) {
+      if (arr.length === 0) {
+         return +arraySum;
+      }
+      if (Array.isArray(arr[arr.length - 1])) {         
+         arraySum += +innerSum(arr[arr.length - 1], arraySum);
+         arr.pop();
+      }
+      console.log(`arrS = ${arraySum} + Value = ${arr[arr.length-1]}`);
+       return innerSum(arr, arraySum += +arr.pop());
    }
-
-   if (Array.isArray(arr[arr.length - 1])) {
-      arraySum += getSum(arr[arr.length - 1]);
-      arr.pop();
-   }
-   return getSum(arr, arraySum += arr.pop());
-
+   let arraySum = innerSum(arr,0);
+   return arraySum;
 }
-console.log(getSum([6, 5, 2, [10, 3], 4, 3]));
+console.log(getSum([1, 2, 3, [4, 5, 6], 7, 8]));
 
 console.log(getSum([1, [2, [3]]]));
 
