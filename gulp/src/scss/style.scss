@@ -1,0 +1,19 @@
+@import "fonts";
+body{
+   font-family: Honey Notes DEMO;
+   font-size: 50px;
+   background-color: aqua;
+   background: url("@img/oblom.jpg") 0 0 no-repeat;
+}
+
+@media(max-width:768px){
+   p{
+      font-size: 30px;
+   }
+}
+
+@media (max-width: 768px) {
+   body{
+   background-color: green;
+}
+}
