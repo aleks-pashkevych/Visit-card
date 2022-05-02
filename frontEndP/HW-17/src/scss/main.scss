@@ -1,0 +1,27 @@
+@import "normalize.css/normalize";
+@import "./variables.scss";
+
+body {
+  background-color: $green;
+}
+
+header {
+  background-color: red;
+}
+
+footer {
+  background-color: #E5E5E5;
+  padding-left: 15%;
+  margin-bottom: 91px;
+  padding-top: 100px;
+
+  .try-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .footer-about-wrapper {
+    grid-template-columns: auto;
+  }
+}
