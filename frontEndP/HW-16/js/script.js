@@ -43,13 +43,18 @@ seedEl.addEventListener('change', (event) => {
 });
 button.addEventListener('click', (event) => {
    event.preventDefault();
-   downLoad(iconEl.src, `${seed}.svg`);
+   downLoad(iconEl.src, `${sprite}-${seed}.svg`);
 });
 
 function downLoad(iconUrl, fileName) {
-   var a = document.createElement("a");
-   a.href = iconUrl;
-   a.setAttribute("download", fileName);
-   a.click();
-   return false;
+   fetch(iconUrl)
+      .then((res) => {
+         return res.blob();
+      })
+      .then((data) => {
+         var a = document.createElement("a");
+         a.href = window.URL.createObjectURL(data);
+         a.download = fileName;
+         a.click();
+      });
 }
