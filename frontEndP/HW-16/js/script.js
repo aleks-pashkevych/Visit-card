@@ -15,14 +15,11 @@ let sprite = spriteEl.value;
 let seed = seedEl.value;
 let color = 'white';
 
-
 function setImage(iconUrl) {
    iconEl.remove();
    iconEl.src = iconUrl;
-   console.log(iconUrl);
    iconDiv.append(iconEl);
 }
-
 
 colorEl.addEventListener('change', (event) => {
    color = (`%23${(event.target.value).substring(1)}`);
@@ -46,7 +43,6 @@ seedEl.addEventListener('change', (event) => {
 });
 button.addEventListener('click', (event) => {
    event.preventDefault();
-   console.log(iconEl.src);
    downLoad(iconEl.src, `${seed}.svg`);
 });
 
