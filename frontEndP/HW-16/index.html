@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./css/normalize.css">
+   <link rel="stylesheet" href="css/style.css">
+   <title>HW-16</title>
+</head>
+
+<body>
+   <div class="wrapper">
+      <div class="avatar left">
+
+         <select name="sprites" id="sprites">
+            <option value="" disabled>--Choose a sprite--</option>
+            <option value="male">male</option>
+            <option value="female">female</option>
+            <option value="human">human</option>
+            <option value="identicon">identicon</option>
+            <option value="initials">initials</option>
+            <option value="bottts">bottts</option>
+            <option value="avataaars">avataaars</option>
+            <option value="jdenticon">jdenticon</option>
+            <option value="gridy">gridy</option>
+            <option value="micah">micah</option>
+         </select>
+         <select name="seed" id="seed">
+            <option value="white">white</option>
+            <option value="dark">dark</option>
+            <option value="naked">naked</option>
+            <option value="sexy">sexy</option>
+            <option value="pornstar">pornstar</option>
+         </select>
+         <div>
+            <label for="bg-color">Choose color: </label>
+            <input type="color" name="bg-color" id="color">
+         </div>
+
+         <button id="download-btn">Download</button>
+
+      </div>
+      <div class="avatar right">
+         <image id="icon" src="https://avatars.dicebear.com/api/male/john.svg?background=%230000ff" alt="Avatar">
+      </div>
+   </div>
+
+   <script src="./js/script.js"></script>
+</body>
+
+</html>
