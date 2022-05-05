@@ -1,0 +1,35 @@
+.save-data {
+   margin-top: 140px;
+   margin-bottom: 50px;
+   margin-left: 10%;
+   height: 540px;
+   background-image: url("../assets/images/save-data.png");
+   background-repeat: no-repeat;
+   background-position: 90% 100%;
+}
+
+.save-data-head {
+   width: 48%;
+   font-family: 'Inter', sans-serif;
+   font-weight: 700;
+   font-size: 80px;
+   line-height: 110%;
+   color: #212353;
+}
+
+.save-data-text {
+   width: 27%;
+   font-style: normal;
+   font-weight: 500;
+   font-size: 18px;
+   line-height: 160%;
+   color: #4B5D68;
+}
+
+.save-data-btn {
+   width: 170;
+   height: 60;
+   margin-top: 50px;
+   border-radius: 50px;
+   background-color: #9C69E2;
+}

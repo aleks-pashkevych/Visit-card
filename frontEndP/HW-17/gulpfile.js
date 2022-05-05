@@ -1,4 +1,10 @@
-const { src, dest, watch, series, parallel } = require("gulp");
+const {
+  src,
+  dest,
+  watch,
+  series,
+  parallel
+} = require("gulp");
 const del = require('del');
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass')(require('sass'));
@@ -40,10 +46,10 @@ const path = {
 
 function copyHtml() {
   return src(`${path.html.src}*.html`)
-  .pipe(fileinclude())
-  .pipe(
-    dest(path.html.dest)
-  );
+    .pipe(fileinclude())
+    .pipe(
+      dest(path.html.dest)
+    );
 };
 
 function bundlePug() {
@@ -53,8 +59,8 @@ function bundlePug() {
 }
 
 function optimizeImages() {
-  return src(`${path.images.src}*.*`)
-    .pipe(dest(path.images.dest))
+  return src(`${path.images.src}**/*.*`)
+    .pipe(dest(path.images.dest));
 }
 
 function compileStyles() {
@@ -65,14 +71,18 @@ function compileStyles() {
       outputStyle: 'compressed',
     }).on('error', sass.logError))
     .pipe(postcss([autoprefixer(), cssnano()]))
-    .pipe(rename({ extname: '.min.css' }))
+    .pipe(rename({
+      extname: '.min.css'
+    }))
     .pipe(gulpif(!isProd, sourcemaps.write('.'), browserSync.stream()))
     .pipe(dest(path.styles.dest))
 }
 
 function compileScripts() {
   return src(`${path.scripts.src}main.js`)
-    .pipe(gulpif(!isProd, sourcemaps.init({ loadMaps: true })))
+    .pipe(gulpif(!isProd, sourcemaps.init({
+      loadMaps: true
+    })))
     .pipe(webpack({
       mode: isProd ? 'production' : 'development',
       devtool: isProd ? false : 'source-map',
@@ -81,7 +91,7 @@ function compileScripts() {
       }
     }))
     .pipe(gulpif(!isProd, sourcemaps.write('.'), browserSync.stream()))
-    .pipe(dest(path.scripts.dest))
+    .pipe(dest(path.scripts.dest));
 }
 
 function cacheBust() {

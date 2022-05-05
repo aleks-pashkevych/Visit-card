@@ -4,35 +4,44 @@ footer
          h1 Try for free!
          p.footer-adv-text Get limited 1 week free try our features!
       .footer-btns
-         a.learn(href='#') Learn more
-         button.rqst-demo-btn(type="submit" style='width:210px; height:60px;') Request Demo
+         button.learn Learn more
+         button.rqst-demo-btn(type="submit") Request Demo <img class = "pink-arrow" src="./assets/images/pink-arrow.png", alt="Arrow">
    .footer-about-wrapper
-   #footer-about-first-colum
-      #footer-logo
-         img(src='./assets/images/Logo.png' alt='Logo' style='width:50px; height:35px;')
-         h2 DataWarehouse
-      p(class="footer-adr")
-      | Warehouse Society, 234 <br/>
-      | Bahagia Ave Street PRBW 29281
-      .p#footer-comn 
-      | info@warehouse.project <br/>
-      | 1-232-3434 (Main)
-   .footer-about-middle
-      a(href='#') Profile
-      a(href='#') Features
-      a(href='#') Careers
-      a(href='#') DW News
-   .footer-about-middle
-      a(href='#') Support
-      a(href='#') Sign up
-      a(href='#') Guide
-      a(href='#') Reports
-      a(href='#') Q&A
-   .footer-about-end
-      a(href="#")
-         img(src='./assets/images/svg/f.svg' alt='FaceBook' style='width:50px; height:50px;')
-      a(href="#")
-         img(src='./assets/images/svg/i.svg' alt='Instagram' style='width:50px; height:50px;')
-      a(href="#")
-         img(src='../assets/images/svg/t.svg' alt='Twitter' style='width:50px; height:50px;')
-
+      .footer-about-first-colum
+         .footer-logo
+            .footer-logo-img
+               img(src='./assets/images/Logo.png' alt='Logo' style='width:50px; height:35px;')
+            .footer-logo-txt
+               h2 DataWarehouse
+         p(class="footer-adr")
+            | Warehouse Society, 234 <br/>
+            | Bahagia Ave Street PRBW 29281
+         p#footer-comn 
+            | info@warehouse.project <br/>
+            | 1-232-3434 (Main)
+      .footer-about-middle
+         a.footer-link-top(href='#') About <br/>
+         ul.footer-links
+         - var menu = ["Profile", "Features", "Careers", "DW News"]
+          each item in menu 
+            li.footer-link= item
+      .footer-about-middle
+         a.footer-link-top(href='#') Help<br/>
+         ul.footer-links
+         - var menu = ["Support", "Sign up", "Guide", "Reports", "Q&A"]
+          each item in menu 
+            li.footer-link= item
+      .footer-about-end 
+         .social-media-txt <a href="#"> Social media </a><br/>
+         .social-media-img
+            a(href="#")
+            img(src='./assets/images/svg/f.svg' alt='FaceBook' style='width:50px; height:50px;')
+            a(href="#")
+            img(src='./assets/images/svg/i.svg' alt='Instagram' style='width:50px; height:50px;')
+            a(href="#")
+            img(src='../assets/images/svg/t.svg' alt='Twitter' style='width:50px; height:50px;')
+   .footer-bottom
+      .footer-bottom-txt © Datawarehouse™, 2020. All rights reserved. </br>
+                           |Company Registration Number: 21479524.
+      .footer-bottom-img 
+         <a href="#"><img src="./assets/images/message.png", alt="message"></a>

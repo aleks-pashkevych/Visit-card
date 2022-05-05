@@ -1,16 +1,18 @@
 @import "normalize.css/normalize";
 @import "./variables.scss";
+@import "./header.scss";
+@import "./save-data.scss";
+@import "./footer.scss";
+@import "./fonts.scss";
+
 
 body {
-  background-color: $green;
-}
-
-header {
-  background-color: red;
+  font-family: 'Montserrat', sans-serif;
+  background-color: bgColor;
 }
 
 footer {
-  background-color: #E5E5E5;
+  background-color: bgColor;
   padding-left: 15%;
   margin-bottom: 91px;
   padding-top: 100px;
