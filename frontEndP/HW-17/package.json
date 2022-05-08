@@ -30,6 +30,7 @@
     "gulp-sourcemaps": "^3.0.0",
     "postcss": "^8.4.12",
     "sass": "^1.50.1",
+    "swiper": "^8.1.4",
     "webpack": "^5.72.0",
     "webpack-stream": "^7.0.0"
   },

@@ -1,0 +1,44 @@
+.storage-bank-wrapper {
+   margin-left: 10%;
+   background-color: rgba(240, 99, 184, 0.15);
+   border-radius: 50px;
+   margin-right: 8%;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+}
+
+.storage-bank-img {
+   height: 100%;
+
+}
+
+.storage-bank-img {
+   width: 100%;
+   height: 100%;
+   margin-left: 3%;
+}
+
+.storage-bank-txt {
+   width: 1000px;
+   margin-top: 5%;
+   margin-right: 8%;
+   margin-bottom: 10%;
+}
+
+.storage-bank-txt-head {
+   font-family: 'Inter', sans-serif;
+   font-style: normal;
+   font-weight: 700;
+   font-size: 40px;
+   line-height: 130%;
+   color: #212353;
+}
+
+.storage-bank-maintxt {
+   font-style: normal;
+   font-weight: 500;
+   font-size: 18px;
+   line-height: 160%;
+   color: #4B5D68;
+}

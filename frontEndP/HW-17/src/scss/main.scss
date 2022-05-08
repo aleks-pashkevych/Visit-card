@@ -2,13 +2,19 @@
 @import "./variables.scss";
 @import "./header.scss";
 @import "./save-data.scss";
+@import "./storage-bank.scss";
+@import "./features.scss";
 @import "./footer.scss";
 @import "./fonts.scss";
+
 
 
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: bgColor;
+  min-width: 1200px;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 footer {
