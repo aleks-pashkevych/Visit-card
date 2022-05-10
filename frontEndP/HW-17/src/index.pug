@@ -11,9 +11,9 @@ html
     include templates/swiper.pug
     include templates/footer.pug
     //-script(src="https://unpkg.com/swiper@8/swiper-bundle.min.js")
-    script(type="module")
-      |import Swiper from 'https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js';
-      |const swiper = new Swiper('.swiper', {
-      |modules: [Navigation, Pagination],
-      |}); 
+    //- script(type="module")
+    //-   |import Swiper from 'https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js';
+    //-   |const swiper = new Swiper('.swiper', {
+    //-   |modules: [Navigation, Pagination],
+    //-   |}); 
     script(src='/js/main.min.js?cache_bust=123')

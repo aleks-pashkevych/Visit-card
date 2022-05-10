@@ -18,6 +18,7 @@ const webpack = require('webpack-stream');
 const fileinclude = require('gulp-file-include');
 const pug = require('gulp-pug');
 const browserSync = require('browser-sync');
+
 const isProd = process.env.NODE_ENV === 'production';
 
 const path = {
@@ -125,10 +126,10 @@ exports.dev = series(
   parallel(bundlePug, optimizeImages, compileStyles, compileScripts),
   cacheBust,
   watcher
-);
+)
 
 exports.build = series(
   clear,
   parallel(bundlePug, optimizeImages, compileStyles, compileScripts),
   cacheBust
-);
+)
