@@ -78,6 +78,14 @@ function compileStyles() {
     .pipe(dest(path.styles.dest))
 }
 
+function swiperCSS() {
+  const cssModules = [
+    'node_modules/swiper/swiper-bundle.min.css',
+  ];
+  return src(cssModules)
+    .pipe(dest(path.styles.dest));
+}
+
 function compileScripts() {
   return src(`${path.scripts.src}main.js`)
     .pipe(gulpif(!isProd, sourcemaps.init({
@@ -123,13 +131,13 @@ function watcher() {
 
 exports.dev = series(
   clear,
-  parallel(bundlePug, optimizeImages, compileStyles, compileScripts),
+  parallel(swiperCSS, bundlePug, optimizeImages, compileStyles, compileScripts),
   cacheBust,
   watcher
-)
+);
 
 exports.build = series(
   clear,
-  parallel(bundlePug, optimizeImages, compileStyles, compileScripts),
+  parallel(swiperCSS, bundlePug, optimizeImages, compileStyles, compileScripts),
   cacheBust
-)
+);

@@ -1,19 +1,20 @@
-import _ from 'lodash';
-import {
-   moduleObj1
-} from './modules/module1';
-import Swiper from 'swiper/bundle';
+import Swiper, {
+   Navigation,
+   Pagination
+} from 'swiper';
+
+Swiper.use([Navigation, Pagination]);
+
 
 const swiper = new Swiper('.swiper', {
+   slidesPerView: 3,
+   loop: true,
    pagination: {
       el: '.swiper-pagination',
+      clickable: true,
    },
-
-   // Navigation arrows
    navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
    },
 });
-
-console.log(moduleObj1);

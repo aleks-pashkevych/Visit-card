@@ -2,10 +2,36 @@
    h1.swiper-head Testimonials
    .swiper
       .swiper-wrapper
-      .swiper-slide Slide 1
-      .swiper-slide Slide 2
-      .swiper-slide Slide 3
-      .swiper-slide Slide 4
-   .swiper-pagination
-   .swiper-button-prev 
-   .swiper-button-next 
+         .swiper-slide.data-swiper-parallax-opacity
+            .slide-content
+               .slide-picture
+                   img.slider-photo(src="./assets/images/slider-photos/photo-slide-1.png" alt="Photo")
+               .slide-text
+                  .slide-text-head
+                     h1.slide-head John Fang
+                     a.slide-link(href="#") wordfaang.com
+                  .slide-main-text
+                     p Suspendisse ultrices at diam lectus nullam. Nisl, sagittis viverra enim erat tortor ultricies massa turpis. Arcu pulvinar aenean nam laoreet nulla.
+         .swiper-slide.data-swiper-parallax-opacity
+            .slide-content
+               .slide-picture
+                  img.slider-photo(src="./assets/images/slider-photos/photo-slide-2.png" alt="Photo")
+               .slide-text
+                  .slide-text-head
+                     h1.slide-head Jenny Doe
+                     a.slide-link(href="#") UX Engineer
+                  .slide-main-text
+                     p Suspendisse ultrices at diam lectus nullam. Nisl, sagittis viverra enim erat tortor ultricies massa turpis. Arcu pulvinar aenean nam laoreet nulla.
+         .swiper-slide.data-swiper-parallax-opacity
+            .slide-content
+               .slide-picture
+                  img.slider-photo(src="../assets/images/slider-photos/photo-slide-3.png" alt="Photo")
+               .slide-text
+                  .slide-text-head
+                     h1.slide-head William Wong
+                     a.slide-link(href="#") Web Designer
+                  .slide-main-text
+                     p Suspendisse ultrices at diam lectus nullam. Nisl, sagittis viverra enim erat tortor ultricies massa turpis. Arcu pulvinar aenean nam laoreet nulla.
+      .swiper-pagination(style="width: 200px;")
+      .swiper-button-prev 
+      .swiper-button-next 

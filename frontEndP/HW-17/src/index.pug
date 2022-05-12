@@ -1,8 +1,8 @@
 html
   head
     title Main
-    link(rel="stylesheet", href="/css/main.min.css?cache_bust=123")
-    link(rel="stylesheet", href="https://unpkg.com/swiper@8/swiper-bundle.min.css")
+    link(rel="stylesheet", href="./css/main.min.css?cache_bust=123")
+    //- link(rel="stylesheet", href="./css/swiper-bundle.min.css")
   body
     include templates/header.pug
     include templates/save-data.pug
@@ -10,10 +10,4 @@ html
     include templates/features.pug
     include templates/swiper.pug
     include templates/footer.pug
-    //-script(src="https://unpkg.com/swiper@8/swiper-bundle.min.js")
-    //- script(type="module")
-    //-   |import Swiper from 'https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js';
-    //-   |const swiper = new Swiper('.swiper', {
-    //-   |modules: [Navigation, Pagination],
-    //-   |}); 
     script(src='/js/main.min.js?cache_bust=123')

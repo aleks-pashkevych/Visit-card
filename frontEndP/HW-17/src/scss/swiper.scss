@@ -1,11 +1,18 @@
-@import "./swiper-bundle.css";
+//  @import "./swiper-bundle.css";
 
 .swiper-part {
-   width: 80%;
+   overflow: hidden;
+   width: 1400px;
    height: 700px;
    background: #9C69E2;
    border-radius: 50px;
    margin: 0 auto;
+}
+
+.swiper {
+   width: 1800px;
+   height: 600px;
+
 }
 
 .swiper-head {
@@ -14,13 +21,117 @@
    font-size: 40px;
    line-height: 130%;
    color: #fff;
-   padding-top: 100px;
+   padding-top: 50px;
    padding-left: 8%;
-   padding-bottom: 94px;
+   // padding-bottom: 94px;
 }
 
 .swiper-slide {
-   width: 400px;
-   height: 200px;
-   background-color: green;
+   height: 340px;
+   border-radius: 50px;
+   background-color: #FFF;
+   margin-left: 100px;
+   margin-top: 50px;
+   overflow: hidden;
+}
+
+.slider-content {
+   display: flex;
+   flex-direction: row;
+   //  justify-content: space-around;
+}
+
+.slide-picture {
+   display: inline-block;
+   width: 20%;
+   margin-left: 10%;
+}
+
+.slider-photo {
+   margin-bottom: 140px;
+   // position: relative;
+   // top: -40px;
+}
+
+.slide-text {
+   display: inline-block;
+   width: 60%;
+   margin-top: 30px;
+   margin-right: 10%;
+}
+
+.slide-text-head {
+   margin-top: 20px;
+}
+
+.slide-head {
+   font-weight: 600;
+   font-size: 18px;
+   line-height: 160%;
+   letter-spacing: 0.005em;
+   color: #212353;
+}
+
+.slide-link {
+   text-decoration: none;
+   font-weight: 500;
+   font-size: 14px;
+   line-height: 160%;
+   letter-spacing: 0.01em;
+   color: #9C69E2;
+}
+
+.slide-main-text {
+   display: inline;
+   font-weight: 400;
+   font-size: 20px;
+   line-height: 180%;
+   color: #4B5D68;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+   height: 14px;
+   background-repeat: no-repeat;
+   background-size: 100%, auto;
+   background-position: center;
+   position: absolute;
+   top: 500px;
+}
+
+.swiper-button-next {
+   width: 20px;
+   left: 1200px;
+   background-image: url("../assets/images/arrows/swiper-arrow-right.png");
+}
+
+.swiper-button-prev {
+   width: 40px;
+   background-image: url("../assets/images/arrows/swiper-arrow-left.png");
+   left: 1100px;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+   display: none;
+}
+
+.swiper-pagination {
+   height: 70px;
+   position: absolute;
+   top: 480px;
+}
+
+.swiper-pagination-bullet {
+   width: 5px;
+   height: 5px;
+   background-color: #Fff;
+   right: 0;
+}
+
+.swiper-pagination-bullet-active {
+   width: 10px;
+   height: 10px;
+   background-color: #F063B8;
+
 }
