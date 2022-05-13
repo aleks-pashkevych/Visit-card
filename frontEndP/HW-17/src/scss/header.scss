@@ -2,12 +2,6 @@ header {
    margin-top: 50px;
    display: flex;
    justify-content: space-around;
-   // position: sticky;
-   // overflow-x: hidden;
-   // top: 120px;
-   // width: 100%;
-   // z-index: 5;
-   // background-color: bgColor;
 
    img {
       height: 35px;
@@ -28,16 +22,19 @@ header {
       float: left;
       list-style-type: none;
       margin-right: 8%;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 160%;
-      color: #4B5D68;
    }
 
    .checked {
-      font-weight: 700;
+      font-weight: 800;
       color: #212353;
+   }
+
+   a {
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 160%;
+      color: #4B5D68;
    }
 }
 

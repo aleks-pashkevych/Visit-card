@@ -1,8 +1,13 @@
 header
   img(src='./assets/images/Logo.png' alt='Logo' style='width:50px; height:35px;')
+  mixin link(href, name)
+    a(href=href)=name
   ul.header-menu
-    - var menu =[data-js="Help", "Features", "Sign up"]
-    li.checked About
+    - var menu =["Help", "Features", "Sign up"]
+    li
+      a(class="checked" href="#") About
     each item in menu
-        li= item
-  button.rqst-demo-btn Request Demo <img class = "pink-arrow" src="./assets/images/pink-arrow.png", alt="Arrow">
+      li
+        +link("#", item)
+      
+  button.rqst-demo-btn.modal-btn Request Demo <img class = "pink-arrow" src="./assets/images/pink-arrow.png", alt="Arrow">

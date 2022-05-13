@@ -1,11 +1,13 @@
 footer
+   mixin link(href, name)
+      a(href=href)=name
    .try-wrapper
       .try-it
          h1 Try for free!
          p.footer-adv-text Get limited 1 week free try our features!
       .footer-btns
-         button.learn Learn more
-         button.rqst-demo-btn(type="submit") Request Demo <img class = "pink-arrow" src="./assets/images/pink-arrow.png", alt="Arrow">
+         button.learn.modal-btn Learn more
+         button.rqst-demo-btn.modal-btn(type="submit") Request Demo <img class = "pink-arrow" src="./assets/images/pink-arrow.png", alt="Arrow">
    .footer-about-wrapper
       .footer-about-first-colum
          .footer-logo
@@ -24,13 +26,15 @@ footer
          ul.footer-links
          - var menu = ["Profile", "Features", "Careers", "DW News"]
           each item in menu 
-            li.footer-link= item
+            li.footer-link
+               +link("#", item)
       .footer-about-middle
          a.footer-link-top(href='#') Help<br/>
          ul.footer-links
          - var menu = ["Support", "Sign up", "Guide", "Reports", "Q&A"]
           each item in menu 
-            li.footer-link= item
+            li.footer-link
+               +link("#", item)
       .footer-about-end
          .social-media-txt <a href="#"> Social media </a><br/>
          .social-media-img
