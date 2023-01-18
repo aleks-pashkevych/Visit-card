@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Web Chat</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+   <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+      tailwind.config = {
+         theme: {
+            extend: {
+               fontFamily: {
+                  sans: ['Inter', 'sans-serif'],
+               },
+            }
+         }
+      }
+   </script>
+</head>
+
+<body>
+
+   <div class="container mx-auto">
+      <div class="mt-5 mb-5 mx-auto max-w-sm" id="chat-messages">
+      </div>
+   </div>
+   <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm mx-auto">
+      <form id="message-form">
+         <div class="form-group mb-6">
+            <div class="mb-3">
+               <label for="message" class="form-label inline-block mb-2 text-gray-700">Enter your
+                  text:</label>
+               <textarea class="
+                      form-control
+                      block
+                      w-full
+                      px-3
+                      py-1.5
+                      text-base
+                      font-normal
+                      text-gray-700
+                      bg-white bg-clip-padding
+                      border border-solid border-gray-300
+                      rounded
+                      transition
+                      ease-in-out
+                      m-0
+                      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+                    " id="message" rows="3" placeholder="Your message"></textarea>
+            </div>
+            <button type="submit" class="
+          px-6
+          py-2.5
+          bg-blue-600
+          text-white
+          font-medium
+          text-xs
+          leading-tight
+          uppercase
+          rounded
+          shadow-md
+          hover:bg-blue-700 hover:shadow-lg
+          focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+          active:bg-blue-800 active:shadow-lg
+          transition
+          duration-150
+          ease-in-out">Enter message</button>
+      </form>
+   </div>
+   </div>
+
+   <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.js"
+      integrity="sha512-9mpsATI0KClwt+xVZfbcf2lJ8IFBAwsubJ6mI3rtULwyM3fBmQFzj0It4tGqxLOGQwGfJdk/G+fANnxfq9/cew=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script src="client.js"></script>
+</body>
+
+</html>
